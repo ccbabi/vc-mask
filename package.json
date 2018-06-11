@@ -9,7 +9,8 @@
     "clean": "rm -rf dist",
     "dev": "webpack-dev-server --config webpack.config.dev.js --hot --inline --host 0.0.0.0",
     "prebuild": "npm run clean",
-    "build": "webpack --config webpack.config.prod.js --progress"
+    "build": "webpack --config webpack.config.prod.js --progress",
+    "postpublish": "git tag ${npm_package_version} && git push origin master --tags"
   },
   "repository": {
     "type": "git",

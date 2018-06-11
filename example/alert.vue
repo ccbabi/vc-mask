@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 2000px;">
     <button @click="open1" style="position: relative; z-index: 10001">打开1</button>
     <button @click="close1" style="position: relative; z-index: 10001">关闭1</button>
     <button @click="open2" style="position: relative; z-index: 10001">打开2</button>
@@ -8,6 +8,13 @@
     <p v-show="show2">alert2</p>
   </div>
 </template>
+
+<style>
+button {
+  width: 150px;
+  height: 32px;
+}
+</style>
 
 <script>
 import { mapMask } from '../src'

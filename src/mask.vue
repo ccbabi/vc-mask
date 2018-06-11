@@ -45,12 +45,13 @@ export default {
   },
   methods: {
     touchmove (e) {
-      console.log('e')
       e.preventDefault()
       e.stopPropagation()
     },
     afterLeave (el) {
       el.parentNode.removeChild(el)
+      this.__afterLeave && this.__afterLeave()
+      this.$destroy()
     }
   }
 }

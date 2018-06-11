@@ -1,7 +1,8 @@
 import mask from './mask.vue'
 
 let Mask, instance
-let hasDirtry = false
+let hasSetEscEvent = false
+let hasSetClickEvent = false
 
 const def = {
   className: '',
@@ -31,16 +32,19 @@ function escHandle (e) {
   if (e.keyCode === 27) clickHandle(0)
 }
 
-function __initEl () {
+function __initEl (option) {
   const el = this.$mount().$el
-  el.addEventListener('click', clickHandle, false)
+  if (!hasSetClickEvent && option.enabledClickClose) {
+    el.addEventListener('click', clickHandle, false)
+    hasSetClickEvent = true
+  }
   body.appendChild(el)
 }
 
 function esc () {
-  if (!hasDirtry) {
+  if (!hasSetEscEvent) {
     window.addEventListener('keydown', escHandle)
-    hasDirtry = true
+    hasSetEscEvent = true
   }
 }
 
@@ -51,7 +55,7 @@ function __setData (option) {
 }
 
 function __open (option) {
-  this.__initEl()
+  this.__initEl(option)
   this.__setData(option)
   this.show = true
 }
@@ -68,9 +72,23 @@ function close () {
   this.show = false
 }
 
+function __afterLeave () {
+  if (hasSetClickEvent) {
+    instance.$el.removeEventListener('click', clickHandle, false)
+    hasSetClickEvent = false
+  }
+
+  if (hasSetEscEvent) {
+    window.removeEventListener('keydown', escHandle)
+    hasSetEscEvent = false
+  }
+
+  instance = null
+}
+
 function initMask (Vue) {
   const Clazz = Vue.extend(mask)
-  Object.assign(Clazz.prototype, { __open, __initEl, __setData, close })
+  Object.assign(Clazz.prototype, { __open, __initEl, __setData, close, __afterLeave })
   return Clazz
 }
 

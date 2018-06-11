@@ -2,10 +2,14 @@
   "name": "vc-mask",
   "version": "1.0.0",
   "description": "Vue pop-up layer components Shared by all components",
-  "main": "index.js",
+  "main": "dist/vc-mask.js",
+  "module": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --hot --inline --host 0.0.0.0"
+    "clean": "rm -rf dist",
+    "dev": "webpack-dev-server --config webpack.config.dev.js --hot --inline --host 0.0.0.0",
+    "prebuild": "npm run clean",
+    "build": "webpack --config webpack.config.prod.js --progress"
   },
   "repository": {
     "type": "git",
@@ -25,6 +29,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
     "style-loader": "^0.21.0",
     "vm-mount": "^1.0.1",
     "vue": "^2.5.16",

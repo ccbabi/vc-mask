@@ -23,12 +23,10 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['.js', '.vue', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.vue']
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'example/index.html'
-    }),
+    new HtmlWebpackPlugin(),
     new VueLoaderPlugin()
   ],
   mode: 'development'

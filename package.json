@@ -1,6 +1,6 @@
 {
   "name": "vc-mask",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Vue pop-up layer components Shared by all components",
   "main": "dist/vc-mask.js",
   "module": "src/index.js",

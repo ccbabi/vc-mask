@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import mask from '../src'
+import mask from '../../src'
 import alert from './alert'
 import mount from 'vm-mount'
 

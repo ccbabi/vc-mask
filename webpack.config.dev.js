@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
-  entry: './example/index.js',
+  entry: './example/npm/index.js',
   output: {
-    path: path.resolve('example/dist'),
-    filename: 'mask.js',
+    path: path.resolve('example/npm/dist'),
+    filename: 'vc-mask.js',
     publicPath: '/'
   },
   module: {

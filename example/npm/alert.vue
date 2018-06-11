@@ -17,7 +17,7 @@ button {
 </style>
 
 <script>
-import { mapMask } from '../src'
+import { mapMask } from '../../src'
 
 const mask1 = mapMask({
   enabledClickClose: false,

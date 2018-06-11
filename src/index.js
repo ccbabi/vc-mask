@@ -1,6 +1,6 @@
 import mask from './mask.vue'
 
-let Mask, instance
+let Mask, instance, body
 let hasSetEscEvent = false
 let hasSetClickEvent = false
 
@@ -13,7 +13,6 @@ const def = {
 
 const depStack = []
 const linkDescribe = {}
-const body = document.body
 
 function clickHandle (e) {
   const pid = depStack[depStack.length - 1]
@@ -43,7 +42,7 @@ function __initEl (option) {
 
 function esc () {
   if (!hasSetEscEvent) {
-    window.addEventListener('keydown', escHandle)
+    window.addEventListener('keydown', escHandle, false)
     hasSetEscEvent = true
   }
 }
@@ -79,7 +78,7 @@ function __afterLeave () {
   }
 
   if (hasSetEscEvent) {
-    window.removeEventListener('keydown', escHandle)
+    window.removeEventListener('keydown', escHandle, false)
     hasSetEscEvent = false
   }
 
@@ -95,6 +94,9 @@ function initMask (Vue) {
 function install (Vue, useOption) {
   Mask = initMask(Vue)
   Mask.useOption = useOption
+  body = document.body ||
+    document.querySelector('body') ||
+    document.getElementsByTagName('body')[0]
 }
 
 function getInstance () {

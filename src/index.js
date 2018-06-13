@@ -112,6 +112,8 @@ function loop () {}
 
 export function mapMask (option) {
   const pid = randomId()
+
+  linkDescribe[pid] = {}
   option = option || {}
 
   if (option.enabledEscClose) esc()
@@ -136,7 +138,9 @@ export function mapMask (option) {
       if (!~index) {
         depStack.push(pid)
       } else {
-        depStack.push(depStack.splice(index, 1)[0])
+        if (depStack.length > 1) {
+          depStack.push(depStack.splice(index, 1)[0])
+        }
       }
 
       getInstance().__open(callOption)
@@ -149,7 +153,7 @@ export function mapMask (option) {
 
     const newClose = function newClose () {
       ret = close.apply(this, arguments)
-      if (ret === false) return
+      if (ret === false || !depStack.length) return ret
 
       popPid = depStack[depStack.length - 1]
       index = depStack.indexOf(pid)
@@ -157,9 +161,10 @@ export function mapMask (option) {
       if (~index) depStack.splice(index, 1)
 
       if (popPid === pid) instance.close()
+
+      return ret
     }
 
-    linkDescribe[pid] = linkDescribe[pid] || {}
     linkDescribe[pid].close = newClose
 
     return newClose

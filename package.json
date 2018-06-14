@@ -33,6 +33,9 @@
   "files": [
     "dist"
   ],
+  "browserslist": [
+    "last 2 versions"
+  ],
   "homepage": "https://github.com/ccbabi/vc-mask#readme",
   "devDependencies": {
     "autoprefixer": "^8.6.2",

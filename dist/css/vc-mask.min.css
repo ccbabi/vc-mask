@@ -1,1 +1,1 @@
-.vc-mask{position:fixed;top:0;right:0;bottom:0;left:0;background-color:#000;opacity:.5}.vc-mask-enter-active,.vc-mask-leave-active{transition:opacity .2s}.vc-mask-enter,.vc-mask-leave-active,.vc-mask-leave-to{opacity:0}
+.vc-mask{position:fixed;top:0;right:0;bottom:0;left:0;background-color:#000;opacity:.5}.vc-mask-enter-active,.vc-mask-leave-active{-webkit-transition:opacity .2s;transition:opacity .2s}.vc-mask-enter,.vc-mask-leave-active,.vc-mask-leave-to{opacity:0}

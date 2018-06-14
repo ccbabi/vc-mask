@@ -10,6 +10,7 @@
 
 .vc-mask-enter-active,
 .vc-mask-leave-active {
+  -webkit-transition: opacity .2s;
   transition: opacity .2s;
 }
 

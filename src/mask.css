@@ -1,4 +1,3 @@
-
 .vc-mask {
   position: fixed;
   top: 0;
@@ -8,13 +7,14 @@
   background-color: #000;
   opacity: .5;
 }
+
 .vc-mask-enter-active,
 .vc-mask-leave-active {
   transition: opacity .2s;
 }
+
 .vc-mask-enter,
 .vc-mask-leave-to,
 .vc-mask-leave-active {
   opacity: 0;
 }
-

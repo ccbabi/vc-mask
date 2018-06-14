@@ -1,1 +1,344 @@
-!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports["vc-mask"]=t():e["vc-mask"]=t()}(window,function(){return function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=1)}([function(e,t,n){},function(e,t,n){"use strict";n.r(t);var o=function(){var e=this.$createElement,t=this._self._c||e;return t("transition",{attrs:{name:"vc-mask"},on:{"after-leave":this.afterLeave}},[t("div",{directives:[{name:"show",rawName:"v-show",value:this.show,expression:"show"}],staticClass:"vc-mask",class:this.className,style:{zIndex:this.zIndex},on:{touchmove:this.touchmove}})])};o._withStripped=!0;var r={name:"vc-mask",props:{className:{type:String,default:""},zIndex:{type:Number,default:1e3}},data:function(){return{show:!1}},methods:{touchmove:function(e){e.preventDefault(),e.stopPropagation()},afterLeave:function(e){e.parentNode.removeChild(e),this.__afterLeave&&this.__afterLeave(),this.$destroy()}}};n(3);var i=function(e,t,n,o,r,i,s,a){var c,u="function"==typeof e?e.options:e;if(t&&(u.render=t,u.staticRenderFns=n,u._compiled=!0),o&&(u.functional=!0),i&&(u._scopeId="data-v-"+i),s?(c=function(e){(e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),r&&r.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(s)},u._ssrRegister=c):r&&(c=a?function(){r.call(this,this.$root.$options.shadowRoot)}:r),c)if(u.functional){u._injectStyles=c;var l=u.render;u.render=function(e,t){return c.call(t),l(e,t)}}else{var f=u.beforeCreate;u.beforeCreate=f?[].concat(f,c):[c]}return{exports:e,options:u}}(r,o,[],!1,null,null,null);i.options.__file="src/mask.vue";var s=i.exports;n.d(t,"mapMask",function(){return O});var a=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},c="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},u=void 0,l=void 0,f=void 0,d=!1,p=!1,v={className:"",zIndex:1e3,enabledClickClose:!0,enabledEscClose:!1},h=[],m={};function y(e){var t=h[h.length-1];if(t){var n=m[t];n&&n.close&&n.instance&&(e&&n.option.enabledClickClose||n.option.enabledEscClose)&&n.close.apply(n.instance)}}function _(e){27===e.keyCode&&y(0)}function b(e){var t=this.$mount().$el;!p&&e.enabledClickClose&&(t.addEventListener("click",y,!1),p=!0),f.appendChild(t)}function g(e){var t=this;["className","zIndex"].forEach(function(n){t[n]=e[n]})}function x(e){this.__initEl(e),this.__setData(e),this.show=!0}function C(){var e=h[h.length-1];e&&this.__setData(m[e].option),h.length||(this.show=!1)}function w(){p&&(l.$el.removeEventListener("click",y,!1),p=!1),d&&(window.removeEventListener("keydown",_,!1),d=!1),l=null}function S(){}function O(e){var t=Math.random().toString(36).slice(2);return m[t]={},(e=e||{}).enabledEscClose&&(d||(window.addEventListener("keydown",_,!1),d=!0)),{mapMaskOpen:function(n){var o=void 0,r=void 0,i=void 0,s=void 0;return n=n||S,function(){!1!==(r=n.apply(this,arguments))&&(r&&"object"===(void 0===r?"undefined":c(r))&&(s=r),i=a({},v,u.useOption,e,s),m[t].option=i,m[t].instance=this,~(o=h.indexOf(t))?h.length>1&&h.push(h.splice(o,1)[0]):h.push(t),(l=l||new u).__open(i))}},mapMaskClose:function(e){var n=void 0,o=void 0,r=void 0;e=e||S;var i=function(){return!1!==(o=e.apply(this,arguments))&&h.length?(n=h[h.length-1],~(r=h.indexOf(t))&&h.splice(r,1),n===t&&l.close(),o):o};return m[t].close=i,i}}}t.default={install:function(e,t){(u=function(e){var t=e.extend(s);return Object.assign(t.prototype,{__open:x,__initEl:b,__setData:g,close:C,__afterLeave:w}),t}(e)).useOption=t,f=document.body||document.querySelector("body")||document.getElementsByTagName("body")[0]}}},,function(e,t,n){"use strict";var o=n(0);n.n(o).a}])});
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (factory((global['vc-mask'] = {})));
+}(this, (function (exports) { 'use strict';
+
+  //
+  //
+  //
+  //
+  //
+  //
+
+  var script = {
+    name: 'vc-mask',
+    props: {
+      className: {
+        type: String,
+        default: ''
+      },
+      zIndex: {
+        type: Number,
+        default: 1000
+      }
+    },
+    data: function data() {
+      return {
+        show: false
+      };
+    },
+
+    methods: {
+      touchmove: function touchmove(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      },
+      afterLeave: function afterLeave(el) {
+        el.parentNode.removeChild(el);
+        this.__afterLeave && this.__afterLeave();
+        this.$destroy();
+      }
+    }
+  };
+
+  var __vue_script__ = script;
+
+  /* template */
+  var __vue_render__ = function __vue_render__() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c("transition", { attrs: { name: "vc-mask" }, on: { "after-leave": _vm.afterLeave } }, [_c("div", {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: _vm.show,
+        expression: "show"
+      }],
+      staticClass: "vc-mask",
+      class: _vm.className,
+      style: { zIndex: _vm.zIndex },
+      on: { touchmove: _vm.touchmove }
+    })]);
+  };
+  var __vue_staticRenderFns__ = [];
+  __vue_render__._withStripped = true;
+
+  var __vue_template__ = typeof __vue_render__ !== 'undefined' ? { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ } : {};
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* component normalizer */
+  function __vue_normalize__(template, style, script$$1, scope, functional, moduleIdentifier, createInjector, createInjectorSSR) {
+    var component = (typeof script$$1 === 'function' ? script$$1.options : script$$1) || {};
+
+    {
+      component.__file = "/Users/wangjie/repositories/vc-mask/src/mask.vue";
+    }
+
+    if (!component.render) {
+      component.render = template.render;
+      component.staticRenderFns = template.staticRenderFns;
+      component._compiled = true;
+
+      if (functional) component.functional = true;
+    }
+
+    component._scopeId = scope;
+
+    return component;
+  }
+  /* style inject */
+  function __vue_create_injector__() {
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var styles = __vue_create_injector__.styles || (__vue_create_injector__.styles = {});
+    var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
+
+    return function addStyle(id, css) {
+      if (document.querySelector('style[data-vue-ssr-id~="' + id + '"]')) return; // SSR styles are present.
+
+      var group = isOldIE ? css.media || 'default' : id;
+      var style = styles[group] || (styles[group] = { ids: [], parts: [], element: undefined });
+
+      if (!style.ids.includes(id)) {
+        var code = css.source;
+        var index = style.ids.length;
+
+        style.ids.push(id);
+
+        if (isOldIE) {
+          style.element = style.element || document.querySelector('style[data-group=' + group + ']');
+        }
+
+        if (!style.element) {
+          var el = style.element = document.createElement('style');
+          el.type = 'text/css';
+
+          if (css.media) el.setAttribute('media', css.media);
+          if (isOldIE) {
+            el.setAttribute('data-group', group);
+            el.setAttribute('data-next-index', '0');
+          }
+
+          head.appendChild(el);
+        }
+
+        if (isOldIE) {
+          index = parseInt(style.element.getAttribute('data-next-index'));
+          style.element.setAttribute('data-next-index', index + 1);
+        }
+
+        if (style.element.styleSheet) {
+          style.parts.push(code);
+          style.element.styleSheet.cssText = style.parts.filter(Boolean).join('\n');
+        } else {
+          var textNode = document.createTextNode(code);
+          var nodes = style.element.childNodes;
+          if (nodes[index]) style.element.removeChild(nodes[index]);
+          if (nodes.length) style.element.insertBefore(textNode, nodes[index]);else style.element.appendChild(textNode);
+        }
+      }
+    };
+  }
+  /* style inject SSR */
+
+  var mask = __vue_normalize__(__vue_template__, __vue_inject_styles__, typeof __vue_script__ === 'undefined' ? {} : __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, typeof __vue_create_injector__ !== 'undefined' ? __vue_create_injector__ : function () {}, typeof __vue_create_injector_ssr__ !== 'undefined' ? __vue_create_injector_ssr__ : function () {});
+
+  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+  var Mask = void 0,
+      instance = void 0,
+      body = void 0;
+  var hasSetEscEvent = false;
+  var hasSetClickEvent = false;
+
+  var def = {
+    className: '',
+    zIndex: 1000,
+    enabledClickClose: true,
+    enabledEscClose: false
+  };
+
+  var depStack = [];
+  var linkDescribe = {};
+
+  function clickHandle(e) {
+    var pid = depStack[depStack.length - 1];
+    if (!pid) return;
+
+    var link = linkDescribe[pid];
+
+    if (link && link.close && link.instance) {
+      if (e && link.option.enabledClickClose || link.option.enabledEscClose) {
+        link.close.apply(link.instance);
+      }
+    }
+  }
+
+  function escHandle(e) {
+    if (e.keyCode === 27) clickHandle(0);
+  }
+
+  function __initEl(option) {
+    var el = this.$mount().$el;
+    if (!hasSetClickEvent && option.enabledClickClose) {
+      el.addEventListener('click', clickHandle, false);
+      hasSetClickEvent = true;
+    }
+    body.appendChild(el);
+  }
+
+  function esc() {
+    if (!hasSetEscEvent) {
+      window.addEventListener('keydown', escHandle, false);
+      hasSetEscEvent = true;
+    }
+  }
+
+  function __setData(option) {
+    var _this = this;
+
+    ['className', 'zIndex'].forEach(function (prop) {
+      _this[prop] = option[prop];
+    });
+  }
+
+  function __open(option) {
+    this.__initEl(option);
+    this.__setData(option);
+    this.show = true;
+  }
+
+  function close() {
+    var pid = depStack[depStack.length - 1];
+
+    if (pid) {
+      this.__setData(linkDescribe[pid].option);
+    }
+
+    if (depStack.length) return;
+
+    this.show = false;
+  }
+
+  function __afterLeave() {
+    if (hasSetClickEvent) {
+      instance.$el.removeEventListener('click', clickHandle, false);
+      hasSetClickEvent = false;
+    }
+
+    if (hasSetEscEvent) {
+      window.removeEventListener('keydown', escHandle, false);
+      hasSetEscEvent = false;
+    }
+
+    instance = null;
+  }
+
+  function initMask(Vue) {
+    var Clazz = Vue.extend(mask);
+    Object.assign(Clazz.prototype, { __open: __open, __initEl: __initEl, __setData: __setData, close: close, __afterLeave: __afterLeave });
+    return Clazz;
+  }
+
+  function install(Vue, useOption) {
+    Mask = initMask(Vue);
+    Mask.useOption = useOption;
+    body = document.body || document.querySelector('body') || document.getElementsByTagName('body')[0];
+  }
+
+  function getInstance() {
+    instance = instance || new Mask();
+    return instance;
+  }
+
+  function randomId() {
+    return Math.random().toString(36).slice(2);
+  }
+
+  function loop() {}
+
+  function mapMask(option) {
+    var pid = randomId();
+
+    linkDescribe[pid] = {};
+    option = option || {};
+
+    if (option.enabledEscClose) esc();
+
+    function mapMaskOpen(open) {
+      var index = void 0,
+          ret = void 0,
+          callOption = void 0,
+          retOption = void 0;
+      open = open || loop;
+
+      return function () {
+        ret = open.apply(this, arguments);
+
+        if (ret === false) return;
+        if (ret && (typeof ret === 'undefined' ? 'undefined' : _typeof(ret)) === 'object') {
+          retOption = ret;
+        }
+
+        callOption = _extends({}, def, Mask.useOption, option, retOption);
+        linkDescribe[pid].option = callOption;
+        linkDescribe[pid].instance = this;
+        index = depStack.indexOf(pid);
+
+        if (!~index) {
+          depStack.push(pid);
+        } else {
+          if (depStack.length > 1) {
+            depStack.push(depStack.splice(index, 1)[0]);
+          }
+        }
+
+        getInstance().__open(callOption);
+      };
+    }
+
+    function mapMaskClose(close) {
+      var popPid = void 0,
+          ret = void 0,
+          index = void 0;
+      close = close || loop;
+
+      var newClose = function newClose() {
+        ret = close.apply(this, arguments);
+        if (ret === false || !depStack.length) return ret;
+
+        popPid = depStack[depStack.length - 1];
+        index = depStack.indexOf(pid);
+
+        if (~index) depStack.splice(index, 1);
+
+        if (popPid === pid) instance.close();
+
+        return ret;
+      };
+
+      linkDescribe[pid].close = newClose;
+
+      return newClose;
+    }
+
+    return { mapMaskOpen: mapMaskOpen, mapMaskClose: mapMaskClose };
+  }
+
+  var index = { install: install };
+
+  exports.mapMask = mapMask;
+  exports.default = index;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+})));

@@ -1,15 +1,18 @@
 {
   "name": "vc-mask",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Vue pop-up layer components Shared by all components",
   "main": "dist/vc-mask.js",
-  "module": "src/index.js",
+  "module": "dist/vc-mask.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist",
     "dev": "webpack-dev-server --config webpack.config.dev.js --hot --inline --host 0.0.0.0",
     "prebuild": "npm run clean",
-    "build": "webpack --config webpack.config.prod.js --progress",
+    "build-css": "postcss -u autoprefixer --no-map -o dist/css/vc-mask.css src/mask.css",
+    "build-css-min": "postcss -u autoprefixer cssnano --no-map -o dist/css/vc-mask.min.css src/mask.css",
+    "build-js": "rollup -c",
+    "build": "npm run build-css && npm run build-css-min && npm run build-js",
     "postpublish": "git tag ${npm_package_version} && git push origin master --tags"
   },
   "repository": {
@@ -28,18 +31,27 @@
     "url": "https://github.com/ccbabi/vc-mask/issues"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "homepage": "https://github.com/ccbabi/vc-mask#readme",
   "devDependencies": {
+    "autoprefixer": "^8.6.2",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.11",
+    "cssnano": "^3.10.0",
     "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.4.0",
+    "postcss": "^6.0.22",
+    "postcss-cli": "^5.0.0",
+    "rollup": "^0.60.4",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-uglify": "^4.0.0",
+    "rollup-plugin-vue": "^4.2.0",
     "style-loader": "^0.21.0",
     "vm-mount": "^1.0.1",
     "vue": "^2.5.16",
